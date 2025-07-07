@@ -1,0 +1,12 @@
+#!/bin/bash
+
+FREESPACE=$(free -mt | grep "Total" | awk '{print $4}')
+THRESHOLD=500
+
+if [ $FREESPACE -lt $THRESHOLD  ]
+then 
+    echo "WARNING!!! Ram is running low  "
+else 
+   echo "Enough ram space no worries."
+fi
+
