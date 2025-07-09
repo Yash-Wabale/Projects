@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+#!/bin/bash
+
+FREESPACE=$(free -mt | grep "Total" | awk '{print $4}')
+THRESHOLD=50000
+TO="yashwabale6@gmail.com"
+
+if [ $FREESPACE -lt $THRESHOLD  ]
+then 
+    echo "WARNING!!! Ram is running low :$FREESPACE % "  | mail -s  "Disk spacee alert"  $TO
+else 
+   echo "Enough ram space no worries."
+fi
+
