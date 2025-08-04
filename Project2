@@ -1,0 +1,38 @@
+#!/bin/bash
+
+ram=$(free --mega | awk 'NR==2{print $3}')
+
+th=3500
+
+limit=4000
+
+avl=$((limit - ram))
+
+echo "------Ram Usage------"
+
+echo " "
+
+if [ "$ram" -gt "$th" ]
+then
+echo " Warning!!! Ram is running Low"
+echo " Available Ram = $avl MB"
+else
+echo " NO Worries sufficient "
+echo "     Ram $avl MB       "
+fi
+
+echo " "
+
+echo "------Disk Usage------"
+
+echo " "
+
+size=$(df -H | awk 'NR==3{print $0}' | awk '{print $2}')
+used=$(df -H | awk 'NR==3{print $0}' | awk '{print $3}')
+avli=$(df -H | awk 'NR==3{print $0}' | awk '{print $4}')
+
+echo " Total Memory = $size "
+echo " Avilable Mem = $avli"
+echo " Used Memory  = $used "
+
+echo " "
