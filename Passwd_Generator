@@ -1,0 +1,35 @@
+#!/bin/bash
+
+echo
+read -p " Choose the Lenght of the Password you want to generate : " Plength
+
+echo
+echo -e "\e[31m Choose the type of Password :-\e[0m"
+echo
+echo -e "\e[1;34m 1. Alphabetic Passsword\e[0m"
+echo
+echo -e "\e[1;34m 2. Numeric Password\e[0m"
+echo
+echo -e "\e[1;34m 3. Symbolic Password\e[0m "
+echo
+
+read -p " Enter The choice [1-3] : " choice
+
+case "$choice" in
+  1)
+PASSWORD=$(< /dev/urandom tr -dc 'AaZhuecniz' | head -c "$Plength")
+    ;;
+  2)
+PASSWORD=$(< /dev/urandom tr -dc '123456789' | head -c "$Plength")
+    ;;
+  3)
+PASSWORD=$(< /dev/urandom tr -dc '*!@#$%^' | head -c "$Plength")
+    ;;
+  *)
+    echo "Invalid option"
+    ;;
+esac
+
+echo
+echo " Generated Password : $PASSWORD"
+echo
