@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo
+read -p "[Compose The E-Mail] : " con
+echo
+read -p "[Entre The Subject For E-Mail] : " sub
+echo
+read -p "[Entre The E-Mail Id Of The Reciptent] : " rec
+
+MAIL=$(echo "$con" | mail -s "$sub" $rec)
+
+echo "$MAIL"
+
+echo -e "[Sending Mail to]----->>>>>{$rec}"
+
